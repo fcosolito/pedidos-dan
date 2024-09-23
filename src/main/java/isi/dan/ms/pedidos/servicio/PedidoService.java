@@ -264,4 +264,9 @@ public class PedidoService {
       pedidoExistente.setDetalle(pedido.getDetalle());
       pedidoExistente.setObra(pedido.getObra());
    }
+
+   private int cuentaPedidos(){
+      return Math.random();
+   }
+
 }
