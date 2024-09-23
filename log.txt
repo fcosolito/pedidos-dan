@@ -1,0 +1,50 @@
+2024-06-30 12:28:43 2024-06-30T15:28:43.988Z  INFO 1 --- [ms-pedidos] [o-auto-1-exec-1] i.dan.ms.pedidos.servicio.PedidoService  :
+ DetallePedido recibido: DetallePedido(producto=null, cantidad=null, precioUnitario=5000.00, descuento=0.00, precioFinal=5000.00)
+2024-06-30 12:28:43 2024-06-30T15:28:43.989Z  INFO 1 --- [ms-pedidos] [o-auto-1-exec-1] i.dan.ms.pedidos.servicio.PedidoService  : Pedido id: 6681547025734a47b4a4962d
+2024-06-30 12:28:43 2024-06-30T15:28:43.989Z  INFO 1 --- [ms-pedidos] [o-auto-1-exec-1] i.dan.ms.pedidos.servicio.PedidoService  : Pedido: Pedido(id=6681547025734a47b4a4962d, 
+fecha=2023-06-28T12:34:56.789Z, numeroPedido=123, usuario=usuario123, observaciones=Observaciones del pedido, cliente=Cliente(id=1, nombre=Diego Fernando, 
+correoElectronico=dr.danelone@gmail.com, cuit=20-24876678-7), total=1000.00, detalle=[DetallePedido(producto=Producto(id=1, nombre=Producto 1, descripcion=Descripción del producto 1, precio=500.00), 
+cantidad=2, precioUnitario=500.00, descuento=0.00, precioFinal=1000.00)])
+
+
+
+Método POST: 
+
+http://localhost:8080/api/pedidos/6681547025734a47b4a4962d/detalle
+
+Objeto: 
+{
+"producto":
+  {
+		"id": 2,
+		"nombre": "Plasticor",
+		"descripcion": "Cemento + cal 25kg",
+		"stockActual": 1000,
+		"stockMinimo": 50,
+		"precio": 5000.00,
+		"categoria": "MORTEROS"
+	},
+	"cantidad": 10,
+ "precioUnitario": 5000.00,
+    "descuento": 0.00,
+    "precioFinal": 5000.00
+}
+
+validación de stock previa: 
+POST
+http://localhost:8080/api/productos/3/verificar-stock
+
+{
+"cantidadDeseada": 100
+}
+
+PARA PEDIDOS DE CAMBIO DE ESTADO
+PUT /pedidos/{id}/estado
+Content-Type: application/json
+
+{
+    "nuevoEstado": "APROBADO",
+    "usuarioCambio": "admin"
+}
+
+
