@@ -32,4 +32,5 @@ COPY --from=build /app/target/*.jar /app/app.jar
 EXPOSE 8080
 
 # Run the application
+# Modificacion 
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
