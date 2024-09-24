@@ -174,7 +174,6 @@ public class PedidoService {
    }
 
    public Cliente obtenerClientePorNombre(String Nombre) {
-      System.out.println("Este es un mensaje de la modificacion B.");
       return Observation.createNotStarted("pedido.obtenerClientePorNombre", observationRegistry)
             .observe(() -> {
                String url = "http://ms-clientes/api/clientes/" + nombreCliente;
