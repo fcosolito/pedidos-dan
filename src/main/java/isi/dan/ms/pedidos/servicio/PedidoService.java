@@ -173,6 +173,19 @@ public class PedidoService {
             });
    }
 
+   public Cliente obtenerClientePorNombre(String Nombre) {
+      return Observation.createNotStarted("pedido.obtenerClientePorNombre", observationRegistry)
+            .observe(() -> {
+               String url = "http://ms-clientes/api/clientes/" + nombreCliente;
+               try {
+                  return restTemplate.getForObject(url, Cliente.class);
+               } catch (Exception e) {
+                  log.error("Error al obtener cliente por nombre: {}", e.getMessage());
+                  return null;
+               }
+            });
+   }
+
    public List<Producto> obtenerProductosPorIds(List<String> productoIds) {
       return Observation.createNotStarted("pedido.obtenerProductosPorIds", observationRegistry)
             .observe(() -> {
