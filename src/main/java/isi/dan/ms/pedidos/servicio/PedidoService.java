@@ -266,7 +266,7 @@ public class PedidoService {
    }
 
    private int cuentaPedidos(){
-      return Math.random();
+      return Math.random()+1;
    }
 
 }
